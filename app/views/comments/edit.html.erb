@@ -1,0 +1,22 @@
+<h1> Edit Comments </h1>
+
+<%= form_for([@article, @article.comments.build]) do |f| %>  
+<p>
+  <!-- get username from  current user-->
+  <% if user_signed_in? %>
+    <%= f.hidden_field :author, :value => current_user.username %>
+  <% else %>
+    <%= link_to 'Sign in', article_path %> to leave comment
+  <%end%>
+</p> 
+
+  <p>
+    <%= f.label :body %><br/>
+    <%= f.text_area :body %>
+  </p> 
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<%end%>
