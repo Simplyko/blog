@@ -1,6 +1,6 @@
 <h1> Edit Comments </h1>
 
-<%= form_for([@article, @article.comments.build]) do |f| %>  
+<%= form_for([@comment.article, @comment]) do |f| %>  
 <p>
   <!-- get username from  current user-->
   <% if user_signed_in? %>
