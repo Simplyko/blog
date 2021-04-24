@@ -11,10 +11,12 @@
         <i><%= comment.author %> said: </i><br/> 
         <%= comment.body %>
         <p>
+				<% if user_signed_in? && comment.author == current_user.username %>
           <%= link_to 'Edit(soon)', [:edit, comment.article, comment] %> |
           <%= link_to 'Delete comment', [comment.article, comment], 
                       method: :delete, 
                       data: { confirm: 'Are you sure?' } %>
+				<% end %>
         </p>
         <hr>
         </p>
@@ -26,7 +28,6 @@
 
 <%= form_for([@article, @article.comments.build]) do |f| %>  
 <p>
-  <!-- get username from  current user-->
   <% if user_signed_in? %>
     <%= f.hidden_field :author, :value => current_user.username %>
   <% else %>

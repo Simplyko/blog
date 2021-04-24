@@ -7,7 +7,7 @@
 		 <%= article.writer %>
 		<p><%= article.text %></p>
     <p>
-		<% if user_signed_in? %>
+		<% if user_signed_in? && article.writer == current_user.username %>
       <%= link_to 'Edit', edit_article_path(article) %> 
       <%= link_to 'Delete', article_path(article), 
                               method: :delete, 
