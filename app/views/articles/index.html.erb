@@ -4,6 +4,7 @@
 
 <% @articles.each do |article| %>
 	<h2><%= link_to article.title, article_path(article)  %></h2>
+		 <%= article.writer %>
 		<p><%= article.text %></p>
     <p>
 		<% if user_signed_in? %>

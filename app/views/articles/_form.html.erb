@@ -15,6 +15,10 @@
     <% end %>
   </div>
 
+	<div>
+		<%= form.hidden_field :writer, :value => current_user.username %>
+	</div>
+
   <div>
     <%= form.submit %>
   </div>
